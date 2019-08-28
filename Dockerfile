@@ -16,6 +16,7 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 # copy jenkins shared configuration
 COPY ./ref $JENKINS_REF
+COPY --chown=jenkins:jenkins  ./src/jobs/seedJobs.groovy  $JENKINS_REF/seeds/jobs/
 
 COPY --chown=jenkins:jenkins  ./src /var/jenkins_home/src
 

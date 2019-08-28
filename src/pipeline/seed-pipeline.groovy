@@ -1,11 +1,10 @@
 pipeline {
-    agent { label 'seed' }
+    agent { label 'master' }
     options {
         buildDiscarder(logRotator(daysToKeepStr: '7' , numToKeepStr: '50', artifactDaysToKeepStr: '7', artifactNumToKeepStr: '7'))
 
         disableConcurrentBuilds()
         timeout(time: 10, unit: 'MINUTES')
-        timestamps()
         quietPeriod(120)
 
     }
@@ -24,7 +23,7 @@ pipeline {
                           ]
                         ])
 
-                jobDsl  targets: 'src/job/*.Job.groovy',
+                jobDsl  targets: 'src/jobs/*Jobs.groovy',
                         removedJobAction:    'DELETE',
                         removedViewAction:   'DELETE',
                         lookupStrategy:      'SEED_JOB',
@@ -46,9 +45,9 @@ pipeline {
 
     }
 
-    post {
-        cleanup {
-            cleanWs()
-        }
-    }
+//    post {
+//        cleanup {
+//            cleanWs()
+//        }
+//    }
 }
