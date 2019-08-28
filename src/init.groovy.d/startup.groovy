@@ -54,7 +54,7 @@ private void seedJenkinsJobs() {
 
     new DslScriptLoader(jobManagement).with {
         seeds.eachFileRecurse (groovy.io.FileType.FILES) { file ->
-            if (file.name.endsWith('seeds.groovy')) {
+            if (file.name.endsWith('seedJobs.groovy')) {
                 runScript(file.text)
             }
         }

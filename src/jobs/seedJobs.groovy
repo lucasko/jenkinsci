@@ -4,7 +4,7 @@ import javaposse.jobdsl.dsl.helpers.scm.SvnCheckoutStrategy
 import javaposse.jobdsl.dsl.helpers.scm.SvnDepth
 
 
-
+//
 //job('seed.seed') {
 //    description("seed job")
 //  //  label('seed')
@@ -61,7 +61,7 @@ job('seed.Accouns') {
     quietPeriod(5)
 
     steps {
-        systemGroovyCommand(readFileFromWorkspace("init.groovy.d/Accounts.groovy")) {}
+        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/Accounts.groovy")) {}
     }
 //    triggers {
 //        scm('* * * * *')
