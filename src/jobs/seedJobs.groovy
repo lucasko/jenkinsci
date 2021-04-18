@@ -52,7 +52,7 @@ pipelineJob('seed.seed') {
 
 
 job('seed.Accouns') {
-    description("accouns job")
+    description("accounts job")
     //  label('seed')
 //    disabled(true)
     logRotator {

@@ -19,7 +19,7 @@ import groovy.json.JsonSlurper
 @Slf4j
 class Accounts {
 
-    private static String VERSION="2019/08/09 14h10"
+    private static String VERSION="2021/04/18 14h10"
 
     def permissions=[
             admin:[
@@ -217,9 +217,6 @@ class Accounts {
 
         log.info "creating qa user .."
         hudsonRealm.createAccount("qa", "1234")
-
-        log.info "creating egnyte user .."
-        hudsonRealm.createAccount("egnyte", "1234")
 
         return hudsonRealm
     }

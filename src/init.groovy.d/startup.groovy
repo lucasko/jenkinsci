@@ -3,7 +3,7 @@
 import java.util.logging.Logger
 import jenkins.model.Jenkins
 import hudson.model.*
-import hudson.markup.RawHtmlMarkupFormatter
+//import hudson.markup.RawHtmlMarkupFormatter
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.plugin.JenkinsJobManagement
 
@@ -39,7 +39,7 @@ private void configureJenkins() {
     //jenkins.model.Jenkins.instance.getDescriptor("jenkins.CLI").get().setEnabled(false)
 
     // set markupformatter
-    Jenkins.instance.setMarkupFormatter(new RawHtmlMarkupFormatter(false))
+    //Jenkins.instance.setMarkupFormatter(new RawHtmlMarkupFormatter(false))
 
     // set jenkins executors number
     Jenkins.instance.setNumExecutors(6)
