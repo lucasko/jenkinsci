@@ -1,2 +1,6 @@
 .idea
 .DS_Store
+*.war
+*.zip
+*.tar
+.class
