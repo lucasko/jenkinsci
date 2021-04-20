@@ -23,4 +23,4 @@ WORKDIR /var/jenkins_home
 LABEL image-name=ruko/jenkins
 LABEL image-version=2.288-2021.0420
 
-USER jenkins
+#USER jenkins
