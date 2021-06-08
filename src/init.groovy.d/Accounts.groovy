@@ -1,4 +1,3 @@
-@groovy.lang.Grab('com.amazonaws:aws-java-sdk-secretsmanager:1.11.385')
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleType
 import com.michelin.cio.hudson.plugins.rolestrategy.Role
 import com.michelin.cio.hudson.plugins.rolestrategy.RoleBasedAuthorizationStrategy
@@ -146,24 +145,6 @@ class Accounts {
                                 ],
                                 pattern: "qa.*|qa.trigger.browser.previousRelease|qa.trigger.browser.release",
                         ],
-
-                    [
-                            name : "egnyte",
-                            users: [
-                                    "c@example.com",
-                            ],
-                            perm :[
-                                    "hudson.model.Item.Read",
-                                    "hudson.model.Item.Build",
-                                    "hudson.model.Item.Workspace",
-                                    "hudson.model.Item.Discover",
-                                    "hudson.model.Item.Cancel",
-                            ],
-                            pattern: "egnyte.*",
-                    ],
-
-
-
             ]
     ]
 
