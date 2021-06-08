@@ -41,6 +41,21 @@ private void configureJenkins() {
     // set markupformatter
     //Jenkins.instance.setMarkupFormatter(new RawHtmlMarkupFormatter(false))
 
+    for(UpdateSite site : Jenkins.getInstance().getUpdateCenter().getSiteList()) {
+        site.neverUpdate = true
+        try {
+            site.data = null
+            site.dataLastReadFromFile = -1
+        } catch(Exception e) {}
+        site.dataTimestamp = 0
+        new File(Jenkins.getInstance().getRootDir(), "updates/${site.id}.json").delete()
+    }
+
+//https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+    System.setProperty('hudson.model.UpdateCenter.never', 'true')
+
+
+
     // set jenkins executors number
     Jenkins.instance.setNumExecutors(6)
 }

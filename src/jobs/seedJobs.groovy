@@ -51,7 +51,7 @@ pipelineJob('seed.seed') {
 }
 
 
-job('seed.Accouns') {
+job('seed.Accounts') {
     description("accounts job")
     //  label('seed')
 //    disabled(true)
