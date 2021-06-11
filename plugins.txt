@@ -45,3 +45,5 @@ workflow-step-api
 workflow-support
 ws-cleanup
 saml
+envinject
+envinject-api
