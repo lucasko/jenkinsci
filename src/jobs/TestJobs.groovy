@@ -22,6 +22,12 @@ pipelineJob('test.job.pipeline'){
         scm('H/5 * * * *')
     }
 
+    environmentVariables
+    {
+        env("NAME","LUCAS")
+        env("NUM","5566")
+    }
+
     definition{
 
         cps{
