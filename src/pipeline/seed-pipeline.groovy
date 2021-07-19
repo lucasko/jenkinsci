@@ -19,7 +19,7 @@ pipeline {
                           userRemoteConfigs: [
                           [
 //                              credentialsId: 'myCredentials',
-                              url: 'https://github.com/lucasko-tw/jenkinsci']
+                              url: 'https://github.com/lucasko/jenkinsci']
                           ]
                         ])
 

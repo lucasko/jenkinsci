@@ -9,7 +9,7 @@ pipeline {
 
         stage("Git") {
             steps {
-                git url:  "https://github.com/lucasko-tw/gradle-task-example.git" 
+                git url:  "https://github.com/lucasko/gradle-task-example.git"
             }
         }
 
