@@ -110,7 +110,7 @@ class Accounts {
                                     "hudson.model.Item.Read",
                                     "hudson.model.Item.Workspace"
                             ],
-                            pattern: "bioregister.*|browser.*|cartridge.trunk.*|d4o.*|downloadmanager.*|elemental.*|inventory.*|mol2img.*|nucleus.*|qa.*|vortex.*|dockerdeployer.*",
+                            pattern: "myjob1.*|myjob2.*",
                     ],
 
                     [
@@ -123,7 +123,7 @@ class Accounts {
                                     "hudson.model.Item.Read",
                                     "hudson.model.Item.Workspace"
                             ],
-                            pattern: "browser.release|browser.previousRelease|intranet.ec2-instances-data",
+                            pattern: "myjob1.*|myjob2.*",
                     ],
 
                         [
@@ -143,7 +143,7 @@ class Accounts {
                                         "hudson.model.Item.Configure",
                                         "hudson.model.Run.Update",
                                 ],
-                                pattern: "qa.*|qa.trigger.browser.previousRelease|qa.trigger.browser.release",
+                                pattern: "qaJobs.*",
                         ],
             ]
     ]
