@@ -16,7 +16,7 @@ defaultVersion = 'master'
 someId = null
 credentialId = null
 
-repo = "https://github.com/lucasko-tw/jenkins-shared-library"
+repo = "https://github.com/lucasko/jenkins-shared-library"
 
 // if (remote != null) {
 
