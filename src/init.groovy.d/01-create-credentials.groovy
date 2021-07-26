@@ -5,17 +5,15 @@
 // import org.jenkinsci.plugins.plaincredentials.impl.*
 // import com.cloudbees.plugins.credentials.common.*
 // import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
-// import com.cloudbees.jenkins.plugins.awscredentials.AWSCredentialsImpl
 // import hudson.util.Secret
-
-// // Username and password
+//
 // Credentials c = (Credentials) new UsernamePasswordCredentialsImpl(
 // CredentialsScope.GLOBAL, // Scope
-// "my_jenkins_user", // id
+// "my_id", // id
 // "My description", // description
-// "my-username", // username
-// "password" // password
+// "centos", // username
+// "centos" // password
 // )
-
+//
 // SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), c)
-
+//
