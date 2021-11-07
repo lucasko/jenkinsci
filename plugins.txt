@@ -47,3 +47,5 @@ ws-cleanup
 saml
 envinject
 envinject-api
+gitlab
+locale
