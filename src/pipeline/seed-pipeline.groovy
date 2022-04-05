@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master' }
+    agent { label 'built-in' }
     options {
         buildDiscarder(logRotator(daysToKeepStr: '7' , numToKeepStr: '50', artifactDaysToKeepStr: '7', artifactNumToKeepStr: '7'))
 

@@ -1,26 +1,17 @@
-environment{
-
-}
+Jenkinsfile
+@Library('pipeline-lib') _
 
 pipeline {
-    agent any 
-
+    agent none
     stages {
-
-        stage("Git") {
+        stage ('Example') {
             steps {
-                git url:  "https://github.com/lucasko/gradle-task-example.git"
+                // log.info 'Starting' 
+                script {
+                    log.info 'Starting'
+                    log.warning 'Nothing to do!'
+                }
             }
         }
- 
-        stage('Build') {
-            steps{
-                sh './gradlew build --profile --no-daemon -s'
-            }
-        }
-
-    }//end of stages
+    }
 }
-
-
- 

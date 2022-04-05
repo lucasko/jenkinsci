@@ -1,7 +1,7 @@
 
 
 IMAGE_REPO=ruko/jenkinsci
-IMAGE_VERSION=2.288-2021.0611
+IMAGE_VERSION=2.341-centos7-jdk8
 
 build:
 	docker build -t $(IMAGE_REPO):$(IMAGE_VERSION) .
