@@ -5,14 +5,18 @@
  import org.jenkinsci.plugins.plaincredentials.impl.*
  import com.cloudbees.plugins.credentials.common.*
  import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
+ import static com.cloudbees.plugins.credentials.CredentialsScope.GLOBAL
+ import com.cloudbees.plugins.credentials.domains.Domain
+ import com.cloudbees.plugins.credentials.SystemCredentialsProvider
  import hudson.util.Secret
+ import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl
 
- class  Credential {
+ class  MyCredential {
   static void main(String... args) {
 
    // 1. Add basic credential
    Credentials c = (Credentials) new UsernamePasswordCredentialsImpl(
-           CredentialsScope.GLOBAL, // Scope
+           GLOBAL, // Scope
            "my_id", // id
            "My description", // description
            "centos", // username
@@ -31,3 +35,4 @@
    SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), credentials);
 
   }
+ }
