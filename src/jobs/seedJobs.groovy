@@ -70,8 +70,6 @@ job('seed.Accounts') {
 
 job('seed.credential') {
     description("credential job")
-    //  label('seed')
-//    disabled(true)
     logRotator {
         numToKeep 20
     }
@@ -82,8 +80,20 @@ job('seed.credential') {
 
         }
     }
-//    triggers {
-//        scm('* * * * *')
-//    }
+}
+
+
+job('seed.plugins') {
+    description("plugins job")
+    logRotator {
+        numToKeep 20
+    }
+    quietPeriod(5)
+
+    steps {
+        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/04-plugins.groovy")) {
+
+        }
+    }
 }
 

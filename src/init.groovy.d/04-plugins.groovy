@@ -2,8 +2,14 @@ import jenkins.model.*
 import hudson.plugins.sonar.*
 import hudson.plugins.sonar.model.TriggersConfig;
 
- class  MySonar {
+ class  MyPlugins {
   static void main(String... args) {
+
+   MyPlugins myPlugins = new MyPlugins();
+   myPlugins.setupSonar();
+  }
+
+  void setupSonar(){
    def jenkins_instance = Jenkins.getInstance()
    def sonar_global_conf = jenkins_instance.getDescriptor(SonarGlobalConfiguration.class)
    def sonar_installations = sonar_global_conf.getInstallations()
@@ -31,6 +37,7 @@ import hudson.plugins.sonar.model.TriggersConfig;
    sonar_global_conf.setInstallations((SonarInstallation[]) sonar_installations)
    sonar_global_conf.save()
    jenkins_instance.save()
+
 
   }
  }
