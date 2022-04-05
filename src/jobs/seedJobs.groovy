@@ -68,3 +68,22 @@ job('seed.Accounts') {
 //    }
 }
 
+job('seed.credential') {
+    description("credential job")
+    //  label('seed')
+//    disabled(true)
+    logRotator {
+        numToKeep 20
+    }
+    quietPeriod(5)
+
+    steps {
+        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/01-create-credentials.groovy")) {
+
+        }
+    }
+//    triggers {
+//        scm('* * * * *')
+//    }
+}
+
