@@ -14,9 +14,9 @@ import hudson.plugins.sonar.model.TriggersConfig;
    def sonar_global_conf = jenkins_instance.getDescriptor(SonarGlobalConfiguration.class)
    def sonar_installations = sonar_global_conf.getInstallations()
 
-   def sonar_name = "New setting"
+   def sonar_name = "MySonar"
    def sonar_server_url = "http://192.168.1.188:9000"
-   def sonar_auth_token = "d72bf1c637cd9b95899192a97b33454b94a8da14"
+   def sonar_auth_token = "my-sonar-token"
    def sonar_mojo_version = ''
    def sonar_additional_properties = ''
    def sonar_triggers = new TriggersConfig()

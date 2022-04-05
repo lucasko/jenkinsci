@@ -1,8 +1,8 @@
-FROM jenkins/jenkins:2.341-centos7-jdk8
+FROM jenkins/jenkins:2.341-jdk11
 
 USER root
 
-RUN yum -y update
+RUN apt-get -y update
 # install jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt

@@ -29,8 +29,9 @@
    StringCredentialsImpl credentials = new StringCredentialsImpl(
            GLOBAL,
            "my-sonar-id",
-           "Secret Text for something",
-           Secret.fromString("S3cr3t"))
+           "my-sonar-token",
+           Secret.fromString("d72bf1c637cd9b95899192a97b33454b94a8da14")
+   )
 
    SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), credentials);
 
