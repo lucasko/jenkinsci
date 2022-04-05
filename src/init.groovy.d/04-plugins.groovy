@@ -16,7 +16,6 @@ import hudson.tools.*
    // Step 1
    def jenkins_instance = Jenkins.getInstance()
    def sonar_global_conf = jenkins_instance.getDescriptor(SonarGlobalConfiguration.class)
-   def sonar_installations = sonar_global_conf.getInstallations()
 
    def sonar_name = "MySonar"
    def sonar_server_url = "http://192.168.1.188:9000"
@@ -38,8 +37,21 @@ import hudson.tools.*
            sonar_additional_analysis_properties,
            sonar_triggers
    )
-   sonar_installations += new_inst
-   println("add new sonar installation success :" + sonar_name);
+   def SonarGlobalConfiguration sonar_conf = jenkins_instance.getDescriptor(SonarGlobalConfiguration.class)
+   def sonar_installations = sonar_conf.getInstallations()
+   def sonar_inst_exists = false
+   sonar_installations.each {
+    def installation = (SonarInstallation) it
+    if ( sonar_name == installation.getName()) {
+     sonar_inst_exists = true
+     println("Found existing installation: " + installation.getName())
+    }
+   }
+   if (!sonar_inst_exists) {
+    sonar_installations += new_inst
+    sonar_conf.setInstallations((SonarInstallation[]) sonar_installations)
+    sonar_conf.save()
+   }
 
    sonar_global_conf.setInstallations((SonarInstallation[]) sonar_installations)
    sonar_global_conf.save()
@@ -53,12 +65,12 @@ import hudson.tools.*
    def desc_SonarRunnerInst = jenkins_instance.getDescriptor("hudson.plugins.sonar.SonarRunnerInstallation")
    def sonarRunnerInstaller = new SonarRunnerInstaller(sonar_runner_version)
    def installSourceProperty = new InstallSourceProperty([sonarRunnerInstaller])
-   def sonarRunner_inst = new SonarRunnerInstallation(sonar_runner_name + sonar_runner_version, "", [installSourceProperty])
+   def sonarRunner_inst = new SonarRunnerInstallation(sonar_runner_name , "", [installSourceProperty])
 
    def sonar_runner_installations = desc_SonarRunnerInst.getInstallations()
    def sonar_runner_inst_exists = false
    sonar_runner_installations.each {
-    installation = (SonarRunnerInstallation) it
+    def installation = (SonarRunnerInstallation) it
     if (sonarRunner_inst.getName() == installation.getName()) {
      sonar_runner_inst_exists = true
      println("Found existing installation: " + installation.getName())
