@@ -35,3 +35,18 @@ pipelineJob('test.job.pipeline'){
         }
     }
 }
+
+
+pipelineJob('healthcehck'){
+
+    triggers {
+        scm('H/5 * * * *')
+    }
+
+    definition{
+
+        cps{
+            script(readFileFromWorkspace('src/pipeline/healthcheck-pipeline.groovy'))
+        }
+    }
+}
