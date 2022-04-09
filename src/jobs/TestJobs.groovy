@@ -40,7 +40,7 @@ pipelineJob('test.job.pipeline'){
 pipelineJob('healthcehck'){
 
     triggers {
-        scm('H/5 * * * *')
+        cron('H/5 * * * *')
     }
 
     definition{
