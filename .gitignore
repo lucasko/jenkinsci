@@ -3,4 +3,8 @@
 *.war
 *.zip
 *.tar
-.class
+*.class
+.idea/*
+.idea
+modules.xml
+*.cfg
