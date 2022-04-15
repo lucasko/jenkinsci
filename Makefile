@@ -20,3 +20,7 @@ git/push:
 	git add .
 	git commit -m "test"
 	git push
+
+sonar/generate/token:
+	curl -X POST  -u admin:admin1234 http://localhost:9000/api/user_tokens/revoke  -d name=admin  || true
+	curl -X POST  -u admin:admin1234 http://localhost:9000/api/user_tokens/generate   -d name=admin | jq -r .'token'

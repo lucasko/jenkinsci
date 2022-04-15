@@ -5,6 +5,8 @@ USER root
 RUN apt-get -y update
 # install jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY jq-linux64 /usr/local/bin/jq
+RUN chmod +x /usr/local/bin/jq
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 # define env variables

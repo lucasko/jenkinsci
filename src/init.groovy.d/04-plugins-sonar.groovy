@@ -18,7 +18,7 @@ import hudson.tools.*
    def sonar_global_conf = jenkins_instance.getDescriptor(SonarGlobalConfiguration.class)
 
    def sonar_name = "MySonar"
-   def sonar_server_url = "http://192.168.1.188:9000"
+   def sonar_server_url = "http://sonarqube:9000"
    def sonar_credential_id = "my-sonar-id"
    def sonar_webhook_id = ''
    def sonar_mojo_version = ''
