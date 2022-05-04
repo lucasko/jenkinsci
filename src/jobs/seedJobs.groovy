@@ -91,7 +91,7 @@ job('seed.plugins') {
     quietPeriod(5)
 
     steps {
-        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/04-plugins.groovy")) {
+        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/04-plugins-sonar.groovy")) {
 
         }
     }

@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.341-jdk11
+FROM jenkins/jenkins:2.345-jdk11
 
 USER root
 
@@ -6,7 +6,6 @@ RUN apt-get -y update
 # install jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY jq-linux64 /usr/local/bin/jq
-RUN chmod +x /usr/local/bin/jq
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 # define env variables
@@ -20,8 +19,13 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false \
 #COPY --chown=jenkins:jenkins  ./src /var/jenkins_home/src
 
 WORKDIR /var/jenkins_home
+RUN chown jenkins:jenkins -R /var/jenkins_home && \
+	chown jenkins:jenkins -R /usr/share/jenkins && \
+	chown jenkins:jenkins -R /var/jenkins_home && \
+	chown jenkins:jenkins -R /usr/local/bin/jq && \
+	chmod +x /usr/local/bin/jq
 
 # LABEL image-name=ruko/jenkins
 # LABEL image-version=2.341-centos7-jdk8
 
-#USER jenkins
+USER jenkins
