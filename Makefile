@@ -1,6 +1,6 @@
 
 
-IMAGE_REPO=ruko/jenkinsci
+IMAGE_REPO=lucasko/jenkinsci
 IMAGE_VERSION=2.345-jdk11
 
 build:
