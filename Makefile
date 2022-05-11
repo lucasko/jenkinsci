@@ -16,6 +16,9 @@ deploy/jenkinsci:
 #	-v $$PWD:/code \
 #	-p 8080:8080 $(IMAGE_REPO):$(IMAGE_VERSION) bash /code/docker-entrypoint.sh
 
+push:
+	$(IMAGE_REPO):$(IMAGE_VERSION)
+
 deploy/sonar:
 	docker-compose up -d sonarqube_db
 	docker-compose up -d sonarqube
