@@ -6,15 +6,19 @@ IMAGE_VERSION=2.345-jdk11
 build:
 	docker build -t $(IMAGE_REPO):$(IMAGE_VERSION) .
 
-deploy: build
-	docker run --rm -uroot --name jenkinsci -it \
-	-e JAVA_OPTS="-Djenkins.install.runSetupWizard=false \
-	-Dhudson.security.csrf.GlobalCrumbIssuerConfiguration=false \
-	-Duser.timezone=Asia/Taipei" \
-	-w /code \
-	-v $$PWD:/code \
-	-p 8080:8080 $(IMAGE_REPO):$(IMAGE_VERSION) bash /code/docker-entrypoint.sh
+deploy/jenkinsci:
+	docker-compose up -d jenkinsci
+#	docker run --rm -uroot --name jenkinsci -it \
+#	-e JAVA_OPTS="-Djenkins.install.runSetupWizard=false \
+#	-Dhudson.security.csrf.GlobalCrumbIssuerConfiguration=false \
+#	-Duser.timezone=Asia/Taipei" \
+#	-w /code \
+#	-v $$PWD:/code \
+#	-p 8080:8080 $(IMAGE_REPO):$(IMAGE_VERSION) bash /code/docker-entrypoint.sh
 
+deploy/sonar:
+	docker-compose up -d sonarqube_db
+	docker-compose up -d sonarqube
 
 git/push:
 	git add .
