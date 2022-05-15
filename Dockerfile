@@ -1,8 +1,8 @@
-FROM jenkins/jenkins:2.345-jdk11
+FROM jenkins/jenkins:2.347-centos7-jdk8
 
 USER root
 
-RUN apt-get -y update
+RUN yum -y update
 # install jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY jq-linux64 /usr/local/bin/jq
