@@ -15,7 +15,12 @@ curl -X POST  -H "Jenkins-Crumb:53165e9cac3d3b639bc5e8750358ed1be5a02e315165b433
 
 
 ## SonarQube
+
+default: admin / admin
 1. Get token from sonarQube website
+```
+make sonar/generate/token
+```
 
 2. There are 2 things to setup
  2-1. Global Tool Configuration

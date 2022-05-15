@@ -1,7 +1,7 @@
 
 
 IMAGE_REPO=lucasko/jenkinsci
-IMAGE_VERSION=2.345-jdk11
+IMAGE_VERSION=2.347-centos7-jdk8
 
 build:
 	docker build -t $(IMAGE_REPO):$(IMAGE_VERSION) .
