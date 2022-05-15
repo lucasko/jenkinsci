@@ -31,3 +31,8 @@ git/push:
 sonar/generate/token:
 	curl -X POST  -u admin:admin1234 http://localhost:9000/api/user_tokens/revoke  -d name=admin  || true
 	curl -X POST  -u admin:admin1234 http://localhost:9000/api/user_tokens/generate   -d name=admin | jq -r .'token'
+
+
+install/docker-compose:
+	sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
