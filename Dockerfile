@@ -19,6 +19,14 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false \
 #COPY --chown=jenkins:jenkins  ./src /var/jenkins_home/src
 
 WORKDIR /var/jenkins_home
+ADD https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/4.7.0.2747/sonar-scanner-cli-4.7.0.2747.zip /tmp/my-sonar-scanner.zip
+
+RUN mkdir -p /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/ & \
+	unzip /tmp/my-sonar-scanner.zip -d /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/ && \
+	mv /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-4.7.0.2747 /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/my-sonar-scanner && \
+	chmod +x /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/my-sonar-scanner/bin/sonar-scanner && \
+	rm -rf /tmp/*.zip
+
 RUN chown jenkins:jenkins -R /var/jenkins_home && \
 	chown jenkins:jenkins -R /usr/share/jenkins && \
 	chown jenkins:jenkins -R /var/jenkins_home && \
