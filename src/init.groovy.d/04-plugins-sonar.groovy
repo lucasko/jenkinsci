@@ -59,7 +59,7 @@ import hudson.tools.*
 
 
    def sonar_runner_name = "my-sonar-scanner"
-   def sonar_runner_version = "4.5.0.2216"
+   def sonar_runner_version = "4.3.0.2102"
    // Step 2 - Configure SonarRunner
    println("Configuring SonarRunner...")
    def desc_SonarRunnerInst = jenkins_instance.getDescriptor("hudson.plugins.sonar.SonarRunnerInstallation")
