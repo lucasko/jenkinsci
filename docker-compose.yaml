@@ -3,8 +3,7 @@ services:
   jenkinsci:
     container_name: jenkinsci
     build: .
-    #    image: ruko/jenkinsci:2.341-jdk11
-#    image: jenkins/jenkins:2.345-jdk11
+    image: jenkins/jenkins:2.347-centos7-jdk8
     environment:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
     ports:
@@ -14,7 +13,7 @@ services:
     command: [ "bash","/code/docker-entrypoint.sh"]
 
   sonarqube:
-    image: sonarqube:9.1.0-community
+    image: sonarqube:7.8-community
     depends_on:
       - sonarqube_db
     environment:
