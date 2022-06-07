@@ -52,4 +52,4 @@ locale
 sonar:2.14
 build-token-root:1.9
 nodejs
-email-ex
+email-ext
