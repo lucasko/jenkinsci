@@ -25,6 +25,7 @@ class  MySMTP {
         emailExt.setDefaultReplyTo(replyTo)
         emailExt.setSmtpServer(smtpServer)
 //        emailExt.setUseSsl(true)
+        emailExt.setUseTls(true)
         emailExt.setSmtpPort(smtpPort)
         emailExt.setCharset("utf-8")
 //emailExt.setDefaultRecipients("someone@example.com")
