@@ -3,7 +3,7 @@ services:
   jenkinsci:
     container_name: jenkinsci
     build: .
-    image: jenkins/jenkins:2.347-centos7-jdk8
+    image: lucasko/jenkinsci:2.347-centos7-jdk8
     environment:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
     ports:

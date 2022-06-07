@@ -97,3 +97,19 @@ job('seed.plugins') {
     }
 }
 
+
+
+job('seed.smtp') {
+    description("plugins job")
+    logRotator {
+        numToKeep 20
+    }
+    quietPeriod(5)
+
+    steps {
+        systemGroovyCommand(readFileFromWorkspace("src/init.groovy.d/05-smtp.groovy")) {
+
+        }
+    }
+}
+
