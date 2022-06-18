@@ -30,7 +30,7 @@
            GLOBAL,
            "my-sonar-id",
            "my-sonar-token",
-           Secret.fromString("d72bf1c637cd9b95899192a97b33454b94a8da14")
+           Secret.fromString("e5d16786f75e268e737894e52caeccc680b2b9a3")
    )
 
    SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), credentials);

@@ -8,12 +8,8 @@ class  MySMTP {
         def instance = Jenkins.getInstance()
         def emailExt = instance.getDescriptor("hudson.plugins.emailext.ExtendedEmailPublisher")
 
-
-//def envVars = Jenkins.instance.getGlobalNodeProperties()[0].getEnvVars()
         def jsonSlurper = new JsonSlurper()
-
         def props = jsonSlurper.parse(new File('/code/secret.json'))
-        print props
 
         def smtpUser = props['SMPT_USER']
         def smtpPassword = props['SMPT_PASSWORD']
@@ -24,12 +20,9 @@ class  MySMTP {
         emailExt.setSmtpAuth(smtpUser, smtpPassword)
         emailExt.setDefaultReplyTo(replyTo)
         emailExt.setSmtpServer(smtpServer)
-//        emailExt.setUseSsl(true)
         emailExt.setUseTls(true)
         emailExt.setSmtpPort(smtpPort)
         emailExt.setCharset("utf-8")
-//emailExt.setDefaultRecipients("someone@example.com")
-
         emailExt.save()
 
     }
