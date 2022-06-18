@@ -33,9 +33,11 @@ RUN chown jenkins:jenkins -R /var/jenkins_home && \
 	chown jenkins:jenkins -R /usr/local/bin/jq && \
 	chmod +x /usr/local/bin/jq
 
-RUN https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 -O /usr/bin/hadolint && \
-	chmod +x /usr/bin/hadolint && \
-	chown jenkins:jenkins
+ADD hadolint-Linux-x86_64  /usr/bin/hadolint
+RUN chmod +x /usr/bin/hadolint && \
+    chown jenkins:jenkins
+#https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 -O /usr/bin/hadolint && \
+
 
 
 # LABEL image-name=ruko/jenkins
