@@ -26,6 +26,15 @@ pipeline {
             }
         }
 
+
+        stage('Dockerfile Test') {
+            steps{
+                //sh 'docker run --rm -i hadolint/hadolint  < Dockerfile'
+                sh "cat Dockerfile"
+                sh 'hadolint < Dockerfile'
+            }
+        }
+
         stage("sonar"){
             steps{
                 script{
@@ -40,10 +49,15 @@ pipeline {
                     }
                 }
             }
-
         }
-
     }//end of stages
+
+    post{
+        always{
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'lucasko.tw@gmail.com'
+        }
+    }
+
 }
 
 

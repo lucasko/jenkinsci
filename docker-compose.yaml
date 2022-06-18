@@ -5,7 +5,7 @@ services:
     build: .
     image: lucasko/jenkinsci:2.347-centos7-jdk8
     environment:
-      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false  -Dmail.smtp.starttls.enable=true "
     ports:
       - "8080:8080"
     volumes:
