@@ -1,7 +1,5 @@
 import hudson.plugins.sonar.SonarBuildWrapper
-environment{
 
-}
 
 pipeline {
     agent any
@@ -27,11 +25,26 @@ pipeline {
         }
 
 
-        stage('Dockerfile Test') {
+        stage('Hadolint Test') {
+
+            environment{
+                HADOLINT_HOME = '/usr/bin/hadolint' // docker run --rm -i hadolint/hadolint  < Dockerfile
+            }
+
             steps{
-                //sh 'docker run --rm -i hadolint/hadolint  < Dockerfile'
                 sh "cat Dockerfile"
-                sh 'hadolint < Dockerfile'
+                script {
+                    sh "cat hadolint-config.yaml"
+                    sh "$HADOLINT_HOME --config hadolint-config.yaml Dockerfile"
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps{
+                sh "cat Dockerfile"
+                sh "cat Makefile"
+                sh "make build_image"
             }
         }
 
@@ -52,11 +65,11 @@ pipeline {
         }
     }//end of stages
 
-    post{
-        always{
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'lucasko.tw@gmail.com'
-        }
-    }
+//    post{
+//        always{
+//            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'lucasko.tw@gmail.com'
+//        }
+//    }
 
 }
 
