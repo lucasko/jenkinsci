@@ -35,10 +35,8 @@ RUN chown jenkins:jenkins -R /var/jenkins_home && \
 
 ADD hadolint-Linux-x86_64  /usr/bin/hadolint
 RUN chmod +x /usr/bin/hadolint && \
-    chown jenkins:jenkins
-#https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 -O /usr/bin/hadolint && \
-
-
+    chown jenkins:jenkins /usr/bin/hadolint && \
+    yum install -y make
 
 # LABEL image-name=ruko/jenkins
 # LABEL image-version=2.341-centos7-jdk8
